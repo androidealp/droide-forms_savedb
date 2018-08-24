@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE extension>
+<extension version="3.0" type="plugin" group="droideforms" method="upgrade">
+	<name>Plugin forms no banco</name>
+	<version>0.1</version>
+	<creationDate>2018-08-23</creationDate>
+	<author>André Luiz</author>
+	<authorEmail>and4563@gmail.com</authorEmail>
+	<authorUrl>http://www.next4.com.br</authorUrl>
+	<copyright>www.next4.com.br</copyright>
+	<license>GNU/GPLv3 or later</license>
+	<description>
+		<![CDATA[
+			<p><strong>Gera um banco no joomla e registra os envios no banco de dados</strong></p>
+			<p>é possível criar variaveis customizadas para mudança de status e campos customizados para ações staticas ou de outros plugins</p>
+			<p style="color:#ff0000"><strong>Atenção:</strong> Antes de desinstalar o plugin faça um backup da tabela #__droide_forms_register, pois ela será removida com a ação</p>
+		]]>
+	</description>
+	<files>
+		<filename plugin="savedb">savedb.php</filename>
+		<filename>README.md</filename>
+		<filename>LICENSE</filename>
+		<folder>sql</folder>
+	</files>
+	<install>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.sql</file>
+        </sql>
+    </install>
+	<uninstall>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.sql</file>
+        </sql>
+    </uninstall>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="addtable"
+								 type="Repeatable"
+								 icon="list"
+								 description="Adicionar nome das tabelas e respectivos id de modulos"
+								 label="Adicionar tabelas"
+								 default="">
+								 <fields name="params">
+								 <fieldset hidden="true" name="addtable_modal" repeat="true">
+				<field
+					name="module_id"
+					type="sql"
+					default="10"
+					label="Selecione o formulário"
+					value_field="nome_for"
+					query="SELECT id AS value, title as nome_for FROM #__modules WHERE module = 'mod_droideforms' and published = 1"
+					/>
+				<field name="custom_save" type="list" default="" label="Dados Customizados" description="Dados que deseja receber em especifico para cada form">
+					<option value="0">Nenhum</option>
+					<option value="status_success">Status Sucesso</option>
+					<option value="status_error">Status Erro</option>
+					<option value="return_custom_1">Informacao para coluna 1</option>
+					<option value="return_custom_2">Informacao para coluna 2</option>
+					<option value="return_custom_3">Informacao para coluna 3</option>
+					<option value="return_custom_4">Informacao para coluna 4</option>
+					<option value="return_custom_5">Informacao para coluna 5</option>
+				</field>
+				 <field
+					 	 name = "comando"
+						 type = "textarea"
+						 default = ""
+						 label ="Ações para o status"
+						 description ="Se status informe como texto o que gostaria de ver como status para enviado limit 70 caracteres, ou uma variavel para ser manipulada por outro plugin, Caso seja os returns pode ser uma mensagem por formulário ou variavel para ser utilizada por outro plugin"
+				 />
+					</fieldset>
+					</fields>
+				</field>
+
+			</fieldset>
+		</fields>
+	</config>
+
+</extension>
