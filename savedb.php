@@ -1,8 +1,7 @@
 <?php
 /**
  * @package     mod_droideforms.Plugin
- * @subpackage  capcha
- *
+ * @subpackage  droide-froms_savedb
  * @copyright   Copyright (C) 2005 - 2016 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  * @author 		André Luiz Pereira <[<and4563@gmail.com>]>
