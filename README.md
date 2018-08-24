@@ -51,4 +51,12 @@ O sistema irá validadar esta variavel tentando localizar nos plugins disparados
 
  **Obs: utilize triggers antes do trigger de pos envio, para ter certeza que o recurso desenvolvido pelo plugin será tratado primerio o onDroideformsPosSend e o onDroideformsPosSendError é utilizado pelo plugin de banco para registro**
 
- 
+ ## Registro de Log
+
+ O sistema possui um simples registro de log chamado log/plugin_droidesavedb.php, este log registra se ocorrer algum erro na base de dados no processo de salvar.
+
+ ### Versions
+
+| Version | Link |
+|---------|------|
+| v 0.1   | [download - v0.1 - j3.8.x testado em droide-forms 1.2](https://github.com/androidealp/droide-forms_savedb/archive/v0.1.zip) |

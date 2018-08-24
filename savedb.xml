@@ -66,7 +66,7 @@
 						 type = "textarea"
 						 default = ""
 						 label ="Ações para o status"
-						 description ="Se status informe como texto o que gostaria de ver como status para enviado limit 70 caracteres, ou uma variavel para ser manipulada por outro plugin, Caso seja os returns pode ser uma mensagem por formulário ou variavel para ser utilizada por outro plugin"
+						 description ="aqui você pode colocar uma varaivel no campo, para ser manipulada por um plugin, é só uma por campo, mais que uma gera erro."
 				 />
 					</fieldset>
 					</fields>
